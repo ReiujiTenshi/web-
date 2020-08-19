@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport"content="width=device-width, initial-scale=1">
+    <title>注册页面</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+    <div id="register"  style="text-align:center">
+        <h1>用户注册</h1><br>
+        <form th:action="@{/security/create}" method="post" th:object="${user}">
+
+
+            <input type="text" class="input1" name="userNo" placeholder="用户账号">
+            <br><br>
+
+            <input type="text" class="input2" name="userPwd" placeholder="用户密码">
+            <br><br>
+
+            <input type="text" class="input3" name="userName" placeholder="用户名字">
+            <br><br>
+
+            <input type="text" class="input4" name="userPhonenumber" placeholder="电话号码">
+            <br><br>
+
+            <button class="btn btn-primary" type="submit">确定</button>
+
+        </form>
+    </div>
+</div>
+<center>
+    <h5>高铁订餐系统-测试版</h5>
+
+    <h5>（版本:Beta1.0 Build:#1 2020-05-23）</h5>
+</center>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport"content="width=device-width, initial-scale=1">
+    <title>菜单</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="padding:8px;">
+
+<form action="" method="POST">
+    <input type="hidden" name="_method" value="DELETE"/>
+</form>
+
+<div class="container mt-3" th:each="purchase : ${page.list}">
+
+    <div class="media border p-3">
+        <div class="media-body">
+            <p th:text="${purchase.purchaseNo}"></p>
+            <p th:text="'高铁班次：'+${purchase.purchaseHw}"></p>
+            <p th:text="'送餐座位：'+${purchase.purchasePlace}"></p>
+            <p th:text="'送餐时间：'+${purchase.purchaseSdata}"></p>
+            <p th:text="'收餐人：'+${purchase.purchaseName}"></p>
+            <p th:text="'电话号码：'+${purchase.purchasePn}"></p>
+
+        </div>
+
+    </div><hr>
+</div>
+
+
+</body>
+</html>

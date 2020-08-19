@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport"content="width=device-width, initial-scale=1">
+    <title>主页</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body >
+<div id="header">
+    <div style="float:right; margin:20px;">
+        用户:[[${user.userName}]]&nbsp;
+        <a th:href="@{/security/logout}" title="退出" id="logout"><span style="cursor: pointer" class="linkspan">离开系统</span></a>
+    </div>
+</div>
+<div>
+        <ul class="nav nav-tabs">
+            <li><a th:href="@{/food/list}" target="contentFrame">&emsp; 餐单&emsp; </a></li>
+            <li><a th:href="@{/purchase/toInput}" target="contentFrame">&emsp; 订餐&emsp; </a></li>
+            <li><a th:href="@{/purchase/list}" target="contentFrame">&emsp; 订单&emsp; </a></li>
+        </ul>
+</div>
+<div id="content">
+        <iframe width="100%" scrolling="no" height="1000px" frameborder="0" name="contentFrame" allowtransparency="true" th:src="@{/welcome.html}"></iframe>
+</div>
+
+
+
+<script type="text/javascript" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+<script  th:inline="javascript">
+
+    $("#logout").click(function () {
+
+        if(confirm('您真的要离开系统吗？')){
+            $(location).attr("href",this.href());
+        }
+        return false;
+    });
+
+</script>
+</body>
+</html>

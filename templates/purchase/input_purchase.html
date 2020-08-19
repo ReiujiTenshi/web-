@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新建订单</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="padding:8px;">
+<h3 class="title">新建订单</h3>
+
+<form th:action="@{/purchase/create}" method="post"  enctype="multipart/form-data" th:object="${purchase}">
+    <div class="input-group">
+        <span class="input-group-addon">订单编号:</span>
+        <input type="text" name="purchaseNo" class="form-control">
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">送餐时间:</span>
+        <input type="text" name="purchaseSdata"  class="form-control">
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">送餐地点:</span>
+        <input type="text" name="purchasePlace" class="form-control">
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">高铁班次:</span>
+        <input type="text" name="purchaseHw" class="form-control">
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">收餐人&nbsp;:</span>
+        <input type="text" name="purchaseName" class="form-control">
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">电话号码:</span>
+        <input type="text" name="purchasePn" class="form-control">
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon">点餐:</span>
+        <select name="food.foodNo" class="form-control">
+            <option>=请选择=</option>
+            <option th:each="list:${foodList}" th:value="${list.foodNo}" th:text="${list.foodName}" ></option>
+        </select>
+    </div>
+
+    <div>
+        <input class="btn btn-primary" type="submit" value="确定"/>
+    </div>
+</form>
+</body>
+</html>
